@@ -18,7 +18,7 @@
   "copyright": "Copyright 2017-2020 creativeLabs Łukasz Holeczek",
   "license": "MIT",
   "private": true,
-  "repository": "https://github.com/TrendsGCC/tosafe-admin-v2.git",
+  "repository": "https://github.com/khairym/tosafe-admin",
   "dependencies": {
     "@coreui/chartjs": "^2.0.0",
     "@coreui/coreui": "^3.4.0",
