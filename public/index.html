@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="Full Feature Safety Monitoring System , for your organization"
+    />
+    <meta name="author" content="To-Safe App" />
+    <meta
+      name="keyword"
+      content="To-Safe,Safety App,HSE,Training,Maintenance"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/coreui@4.0.0-alpha.2/dist/css/coreui.rtl.min.css"
+      integrity="sha384-7hBVLZJngjur8NSJnebv5ca34At0DMOKWD/fGAtITvn3r0QfvlTEfqfJ7+gWtvL0"
+      crossorigin="anonymous"
+    />
+
+    <title>To-Safe Organization Admin</title>
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="%PUBLIC_URL%/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="%PUBLIC_URL%/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="%PUBLIC_URL%/favicon-16x16.png"
+    />
+  </head>
+
+  <body style="font-family: 'Cairo', sans-serif">
+    <noscript> You need to enable JavaScript to run this app. </noscript>
+    <div id="root"></div>
+  </body>
+  <script>
+    function addStyle(styles) {
+      /* Create style document */
+      var css = document.createElement("style");
+      css.type = "text/css";
+
+      if (css.styleSheet) css.styleSheet.cssText = styles;
+      else css.appendChild(document.createTextNode(styles));
+      /* Append style to the tag name */
+      document.getElementsByTagName("head")[0].appendChild(css);
+    }
+
+    function ready() {
+      const lang = localStorage.getItem("lang");
+      console.log(document.getElementsByTagName("html"));
+      document.getElementsByTagName("html")[0].dir =
+        lang == "ar" ? "rtl" : "ltr";
+      document.getElementsByTagName("html")[0].lang = lang;
+      if (lang == "ar") {
+        document.getElementsByTagName("html")[0].style =
+          "font-family: 'Cairo', sans-serif;";
+        document.getElementsByTagName("head");
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", ready);
+  </script>
+</html>

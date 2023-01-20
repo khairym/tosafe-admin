@@ -1,0 +1,39 @@
+steps:
+  - name: gcr.io/cloud-builders/gcloud
+    entrypoint: "bash"
+    args:
+      ["-c", "gcloud secrets versions access latest --secret=github-bot > temp"]
+  - name: gcr.io/cloud-builders/git
+    entrypoint: "bash"
+    args:
+      [
+        "-c",
+        "git remote set-url origin https://trendstech:$(cat temp)@github.com/TrendsGCC/tosafe-admin-v2.git",
+      ]
+  - name: gcr.io/cloud-builders/git
+    entrypoint: "bash"
+    args: ["-c", "git fetch --unshallow && git checkout $BRANCH_NAME"]
+  - name: "gcr.io/cloud-builders/yarn"
+    args: ["install"]
+  - name: "gcr.io/cloud-builders/yarn"
+    id: build
+    args: ["run", "build"]
+  - name: "gcr.io/cloud-builders/yarn"
+    entrypoint: "sh"
+    args: ["-c", "GITHUB_TOKEN=$(cat temp) yarn semantic-release --no-ci"]
+  - name: gcr.io/cloud-builders/gcloud
+    entrypoint: "bash"
+    args:
+      - "-c"
+      - |
+        cat nextVersion
+        if [[ -f nextVersion && -s nextVersion ]] ; then
+          gcloud config set app/cloud_build_timeout 600
+          cp app.yaml build
+          cp nextVersion build
+          cd build
+          gcloud app deploy -v "v$(sed -e 's/\./\-/g' nextVersion)"
+        else
+          echo "nothing to deploy"
+        fi
+    timeout: "600s"
