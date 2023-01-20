@@ -30,7 +30,7 @@ const Login = () => {
     console.log(username, password);
     setLoading(true);
     // const token = await getToken();
-    const response = await fetch("https://api.tosafeapp.com/api/users/login", {
+    const response = await fetch("https://trendsgcc.ew.r.appspot.com/api/users/login", {
       method: "POST",
       mode: "cors",
       cache: "no-cache",

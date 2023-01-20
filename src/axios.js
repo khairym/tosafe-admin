@@ -6,7 +6,7 @@ const Index = async (data, route, method) => {
     ? JSON.parse(localStorage.getItem("orgAdmin")).token
     : undefined;
   return await axios({
-    url: "https://api.tosafeapp.com/api/" + route,
+    url: "https://trendsgcc.ew.r.appspot.com/api/" + route,
     method: method,
     data: data,
     headers: {
