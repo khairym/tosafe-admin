@@ -1,14 +1,10 @@
 steps:
-  - name: gcr.io/cloud-builders/gcloud
-    entrypoint: "bash"
-    args:
-      ["-c", "gcloud secrets versions access latest --secret=github-bot > temp"]
   - name: gcr.io/cloud-builders/git
     entrypoint: "bash"
     args:
       [
         "-c",
-        "git remote set-url origin https://trendstech:$(cat temp)@github.com/TrendsGCC/tosafe-admin-v2.git",
+        "git remote set-url origin https://khairym:${_GITHUB_SECRET}@github.com/khairym/tosafe-admin.git",
       ]
   - name: gcr.io/cloud-builders/git
     entrypoint: "bash"
@@ -20,7 +16,7 @@ steps:
     args: ["run", "build"]
   - name: "gcr.io/cloud-builders/yarn"
     entrypoint: "sh"
-    args: ["-c", "GITHUB_TOKEN=$(cat temp) yarn semantic-release --no-ci"]
+    args: ["-c", "GITHUB_TOKEN=${_GITHUB_SECRET} yarn semantic-release --no-ci"]
   - name: gcr.io/cloud-builders/gcloud
     entrypoint: "bash"
     args:
