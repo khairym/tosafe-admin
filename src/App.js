@@ -63,7 +63,7 @@ const App = () => {
                   : undefined;
                 if (!token) return <Login {...props} />;
                 const client = new ApolloClient({
-                  link: new WebSocketLink({
+                  link: new WebSocketLink({ 
                     uri: "wss://to-safe-cylfx2abya-ew.a.run.app/v1/graphql",
                     options: {
                       reconnect: true,
