@@ -69,7 +69,7 @@ const UserBelongsTo = ({ user_group, belongsTo }) => {
 };
 
 const Users = () => {
-  const [isNeglected, setIsNeglected] = useState(true);
+  const [isNeglected, setIsNeglected] = useState(false);
   const [userGroup, setUserGroup] = useState('');
   const [quotas, setQuotas] = useState([0, 0]);
 
