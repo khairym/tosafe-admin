@@ -5,13 +5,13 @@ export const GetCompanies = gql`
     companies: organization_company_maintain_organization(
       where: { isConfirmed: { _eq: $isConfirmed } }
     ) {
-      company_id
-      isConfirmed
-      count: company_branches_aggregate {
-        aggregate {
-          count
-        }
+    company_id
+    isConfirmed
+    count:company_maintain_branches_aggregate {
+      aggregate {
+        count
       }
+    }
     }
   }
 `;

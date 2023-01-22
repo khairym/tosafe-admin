@@ -31,6 +31,7 @@ const OtherCompanies = ({ title }) => {
 
   const { loading, error, data } = useQuery(GetCompanies, {
     pollInterval: 1000,
+    variables: { isConfirmed: true },
   });
 
   if (loading || loadingCompanies) return <Loader />;
