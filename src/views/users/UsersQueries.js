@@ -92,7 +92,10 @@ export const LoadUserData = gql`
     }
   }
 `;
-
+// permission_local {
+//   description_ar
+//   description_en
+// }
 export const LoadDataForCreateUpdateUser = gql`
   query LoadDataForCreateUpdateUser {
     groups: users_permission_group(
@@ -105,10 +108,7 @@ export const LoadDataForCreateUpdateUser = gql`
         permission
         details: permissionByPermission {
           module
-          permission_local {
-            description_ar
-            description_en
-          }
+        
         }
       }
     }
