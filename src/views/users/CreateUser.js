@@ -479,7 +479,7 @@ const CreateUser = ({ match }) => {
                     ) : (
                       ""
                     )}{" "}
-                    {PropTypes.permission}
+                    {p.permission}
                     {/* {i18n.language == "ar"
                       ? p.details.permission_local.description_ar
                       : p.details.permission_local.description_en} */}
