@@ -62,7 +62,10 @@ export const GetOrganizationUsers = gql`
     }
   }
 `;
-
+// permission_local {
+//   description_ar
+//   description_en
+// }
 export const LoadUserData = gql`
   query LoadUserData($userId: uuid!, $masterRef: String!) {
     user: users_user_by_pk(id: $userId, master_ref: $masterRef) {
@@ -76,11 +79,7 @@ export const LoadUserData = gql`
         permissions: permission_group_permissions {
           permission
           details: permissionByPermission {
-            module
-            permission_local {
-              description_ar
-              description_en
-            }
+            module 
           }
         }
       }

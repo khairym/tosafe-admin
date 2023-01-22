@@ -479,9 +479,10 @@ const CreateUser = ({ match }) => {
                     ) : (
                       ""
                     )}{" "}
-                    {i18n.language == "ar"
+                    {PropTypes.permission}
+                    {/* {i18n.language == "ar"
                       ? p.details.permission_local.description_ar
-                      : p.details.permission_local.description_en}
+                      : p.details.permission_local.description_en} */}
                   </CButton>
                 </CRow>
               ))}
